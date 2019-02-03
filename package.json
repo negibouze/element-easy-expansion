@@ -11,31 +11,31 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "element-ui": "^2.4.5",
+    "element-ui": "^2.5.4",
     "vue": "^2.5.21",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.1.4",
-    "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-typescript": "^3.3.0",
-    "@vue/cli-plugin-unit-jest": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
-    "@vue/test-utils": "^1.0.0-beta.20",
-    "babel-core": "7.0.0-bridge.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "ts-jest": "^23.0.0",
-    "typescript": "^3.0.0",
-    "vue-cli-plugin-element": "^1.0.1",
-    "vue-template-compiler": "^2.5.21",
-    "@storybook/vue": "^4.1.11",
+    "@babel/core": "^7.2.2",
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addons": "^4.1.11",
+    "@storybook/vue": "^4.1.11",
+    "@types/jest": "^23.1.4",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-plugin-unit-jest": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "autoprefixer": "^9.4.7",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.5",
     "babel-preset-vue": "^2.0.2",
-    "@babel/core": "^7.2.2",
-    "babel-loader": "^8.0.5"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "ts-jest": "^23.0.0",
+    "typescript": "^3.3.1",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.5.21"
   }
 }

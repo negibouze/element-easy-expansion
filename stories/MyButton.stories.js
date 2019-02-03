@@ -6,6 +6,6 @@ import MyButton from '../src/components/MyButton.vue';
 storiesOf('Button', module)
   .add('with text', () => ({
     components: { MyButton },
-    template: '<my-button @click="action">Hello Button</my-button>',
+    template: '<my-button @click="action">My Button</my-button>',
     methods: { action: action('clicked') },
   }))
