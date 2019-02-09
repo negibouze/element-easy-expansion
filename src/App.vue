@@ -2,18 +2,18 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
-      <my-button size="xxwide">my-button</my-button>
+      <compare-button size="xxwide" />
     </div>
   </div>
 </template>
 
 <script>
-import MyButton from './components/MyButton.vue';
+import CompareButton from './components/CompareButton.vue';
 
 export default {
   name: 'app',
   components: {
-    MyButton,
+    CompareButton,
   },
 };
 </script>

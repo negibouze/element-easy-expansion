@@ -1,4 +1,5 @@
 const path = require("path");
+const includePath = path.resolve(__dirname, '..');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -36,6 +37,18 @@ module.exports = {
           },
           'stylus-loader'
         ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        include: includePath,
+        use: 'url-loader'
       },
     ]
   },
