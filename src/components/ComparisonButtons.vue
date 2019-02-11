@@ -6,6 +6,7 @@
       <my-button
         :type="type"
         :size="size"
+        :style="additionalStyles"
         @click="handleClick"
       >
         MyButton
@@ -37,6 +38,22 @@ export default class ComparisonButtons extends Vue {
   // props
   @Prop(String) private type!: string;
   @Prop(String) private size!: string;
+  @Prop(Number) private width!: number;
+  @Prop(Number) private height!: number;
+  // computed
+  get additionalStyles() {
+    const styles: { [key: string]: any } = {};
+    if (this.size !== 'free') {
+      return styles;
+    }
+    if (this.width) {
+      styles.width = `${this.width}px`;
+    }
+    if (this.height) {
+      styles.height = `${this.height}px`;
+    }
+    return styles;
+  }
   // handler methods
   private handleClick(e: MouseEvent) {
     console.log(e);
