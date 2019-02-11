@@ -2,19 +2,34 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
-      <compare-button size="xxwide" />
+      <comparison-buttons size="xxwide" />
+    </div>
+    <div>
+      <comparison-popovers :type="popoverType" :size="popoverSize" />
     </div>
   </div>
 </template>
 
-<script>
-import CompareButton from './components/CompareButton.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import ComparisonButtons from '../src/components/ComparisonButtons.vue';
+import ComparisonPopovers from '../src/components/ComparisonPopovers.vue';
+import { PopoverType, PopoverSize } from '../src/components/MyPopover.vue';
 
-export default {
-  name: 'app',
+@Component({
   components: {
-    CompareButton,
+    ComparisonButtons,
+    ComparisonPopovers,
   },
+})
+export default class App extends Vue {
+  // computed
+  get popoverType(): PopoverType {
+    return PopoverType.Error;
+  }
+  get popoverSize(): PopoverSize {
+    return PopoverSize.Narrow;
+  }
 };
 </script>
 

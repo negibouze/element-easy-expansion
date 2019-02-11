@@ -1,19 +1,25 @@
 <template>
   <div class="container">
-    <my-button
-      :type="type"
-      :size="size"
-      @click="handleClick"
-    >
-      MyButton
-    </my-button>
-    <el-button
-      :type="type"
-      :size="size"
-      @click="handleClick"
-    >
-      ElButton
-    </el-button>
+    <div>
+      <h3>My Button</h3>
+      <my-button
+        :type="type"
+        :size="size"
+        @click="handleClick"
+      >
+        MyButton
+      </my-button>
+    </div>
+    <div>
+      <h3>Element Button</h3>
+      <el-button
+        :type="type"
+        :size="size"
+        @click="handleClick"
+      >
+        ElButton
+      </el-button>
+    </div>
   </div>
 </template>
 
@@ -23,10 +29,10 @@ import MyButton from './MyButton.vue';
 
 @Component({
   components: {
-    MyButton
-  }
+    MyButton,
+  },
 })
-export default class CompareButton extends Vue {
+export default class ComparisonButtons extends Vue {
   // props
   @Prop(String) private type!: string;
   @Prop(String) private size!: string;
