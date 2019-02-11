@@ -1,34 +1,38 @@
 import { storiesOf } from '@storybook/vue';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 
 import ComparisonPopovers from '../src/components/ComparisonPopovers.vue';
-import { PopoverType, PopoverSize } from '../src/components/MyPopover.vue';
 
-const typeLabel = 'Types';
-const typeOptions = PopoverType;
-const typeDefaultValue = PopoverType.Error;
-const type = select(typeLabel, typeOptions, typeDefaultValue)
-
-const sizeLabel = 'Sizes';
-const sizeOptions = PopoverSize;
-const sizeDefaultValue = PopoverSize.Narrow;
-const size = select(sizeLabel, sizeOptions, sizeDefaultValue)
-
-const stories = storiesOf('Comparison of Popovers', module);
-
-stories.addDecorator(withKnobs);
-stories.addDecorator(withNotes);
-
-stories.add('default', () => ({
-  components: { ComparisonPopovers },
-  template: `
-  <comparison-popovers
-    type="${type}"
-    size="${size}"
-  />
-  `,
-  notes: `
-    notes
-  `
-}));
+storiesOf('Comparison of Popovers', module)
+  .addDecorator(withKnobs)
+  .add('default', withNotes(
+    `
+      <h3>プロパティは下記が使用できます</h3>
+      <div>
+        Type: error / info / default
+        Size: narrow / default
+      </div>
+    `
+  )(() => {
+    return {
+      components: { ComparisonPopovers },
+      props: {
+        type: {
+          type: String,
+          default: text('Type', 'default'),
+        },
+        size: {
+          type: String,
+          default: text('Size', 'default'),
+        },
+      },
+      template: `
+        <comparison-popovers
+          :type="type"
+          :size="size"
+        />
+      `,
+    }
+  })
+);

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>Current Property Type: {{ type }}, Size: {{ size }}</h2>
     <div>
       <h3>My Popover</h3>
       <my-popover

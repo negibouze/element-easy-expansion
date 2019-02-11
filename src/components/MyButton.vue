@@ -46,14 +46,14 @@ export default class MyButton extends Vue {
 <style lang="stylus" scoped>
 [class*=" el-button-"]
   font-size 14px
-  font-size 1.4rem
+  // font-size 1.4rem
   &[class*="small"]
   &[class*="mini"]
     font-size 12px
-    font-size 1.2rem
+    // font-size 1.2rem
   &[class*="large"]
     font-size 16.8px
-    font-size 1.68rem
+    // font-size 1.68rem
 
 .el-button--free
   padding: 0

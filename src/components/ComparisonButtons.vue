@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>Current Size: {{ size }}</h2>
     <div>
       <h3>My Button</h3>
       <my-button
