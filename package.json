@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "element-ui": "^2.5.4",
-    "vue": "^2.6.5",
+    "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0"
   },
@@ -24,7 +24,7 @@
     "@storybook/addon-notes": "^4.1.11",
     "@storybook/addons": "^4.1.11",
     "@storybook/vue": "^4.1.11",
-    "@types/jest": "^24.0.0",
+    "@types/jest": "^24.0.4",
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-typescript": "^3.4.0",
     "@vue/cli-plugin-unit-jest": "^3.4.0",
@@ -39,6 +39,6 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.3.3",
     "vue-cli-plugin-element": "^1.0.1",
-    "vue-template-compiler": "^2.6.5"
+    "vue-template-compiler": "^2.6.6"
   }
 }
