@@ -1,8 +1,23 @@
 import { storiesOf } from '@storybook/vue';
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { withKnobs, number, radios } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 
 import ComparisonButtons from '../src/components/ComparisonButtons.vue';
+
+const label = 'Size';
+const options = {
+  mini: 'mini',
+  small: 'small',
+  medium: 'medium',
+  wide: 'wide',
+  xwide: 'xwide',
+  xxwide: 'xxwide',
+  large: 'large',
+  xlarge: 'xlarge',
+  xxlarge: 'xxlarge',
+  free: 'free',
+};
+const defaultValue = options.mini;
 
 storiesOf('Comparison of Buttons', module)
   .addDecorator(withKnobs)
@@ -21,7 +36,7 @@ storiesOf('Comparison of Buttons', module)
       props: {
         size: {
           type: String,
-          default: text('Size', 'default'),
+          default: radios(label, options, defaultValue),
         },
         width: {
           type: Number,

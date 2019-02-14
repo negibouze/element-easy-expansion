@@ -1,8 +1,23 @@
 import { storiesOf } from '@storybook/vue';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, radios } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 
 import ComparisonPopovers from '../src/components/ComparisonPopovers.vue';
+
+const typeLabel = 'Type';
+const typeOptions = {
+  error: 'error',
+  info: 'info',
+  default: 'default',
+};
+const typeDefaultValue = typeOptions.default;
+
+const sizeLabel = 'Size';
+const sizeOptions = {
+  narrow: 'narrow',
+  default: 'default',
+};
+const sizeDefaultValue = sizeOptions.default;
 
 storiesOf('Comparison of Popovers', module)
   .addDecorator(withKnobs)
@@ -20,11 +35,11 @@ storiesOf('Comparison of Popovers', module)
       props: {
         type: {
           type: String,
-          default: text('Type', 'default'),
+          default: radios(typeLabel, typeOptions, typeDefaultValue),
         },
         size: {
           type: String,
-          default: text('Size', 'default'),
+          default: radios(sizeLabel, sizeOptions, sizeDefaultValue),
         },
       },
       template: `
