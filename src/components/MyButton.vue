@@ -10,6 +10,7 @@
     :autofocus="autofocus"
     :round="round"
     :circle="circle"
+    :class="{ bulma: theme === 'bulma' }"
     @click="handleClick"
   >
     <slot></slot>
@@ -19,9 +20,15 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+export enum ColorTheme {
+  Bulma = 'bulma',
+  Default = 'default',
+}
+
 @Component
 export default class MyButton extends Vue {
   // props
+  @Prop(String) private colorTheme!: ColorTheme;
   @Prop(String) private type!: string;
   @Prop(String) private size!: string;
   @Prop(String) private icon!: string;
@@ -33,6 +40,9 @@ export default class MyButton extends Vue {
   @Prop(Boolean) private round!: boolean;
   @Prop(Boolean) private circle!: boolean;
   // computed
+  get theme(): ColorTheme {
+    return this.colorTheme;
+  }
   get isPresetIcon(): boolean {
     return (this.icon || '').startsWith('el-');
   }
@@ -72,6 +82,24 @@ export default class MyButton extends Vue {
 .el-button--xxlarge
   padding: 0 180px
   height: 48px
+
+.bulma
+  &.el-button--primary
+    background-color: #00d1b2
+    border-color: #00d1b2
+  &.el-button--success
+    background-color: #23d160
+    border-color: #23d160
+  &.el-button--warning
+    background-color: #ffdd57
+    border-color: #ffdd57
+    color: rgba(0, 0, 0, .7)
+  &.el-button--danger
+    background-color: #ff3860
+    border-color: #ff3860
+  &.el-button--info
+    background-color: #209cee
+    border-color: #209cee
 
 .icon
   height: 18px

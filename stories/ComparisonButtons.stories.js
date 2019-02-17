@@ -4,8 +4,27 @@ import { withNotes } from '@storybook/addon-notes';
 
 import ComparisonButtons from '../src/components/ComparisonButtons.vue';
 
-const label = 'Size';
-const options = {
+const themeLabel = 'Theme';
+const themeOptions = {
+  bulma: 'bulma',
+  default: 'default',
+};
+const themeDefaultValue = themeOptions.default;
+
+const typeLabel = 'Type';
+const typeOptions = {
+  primary: 'primary',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  info: 'info',
+  text: 'text',
+  default: 'default',
+};
+const typeDefaultValue = typeOptions.default;
+
+const sizeLabel = 'Size';
+const sizeOptions = {
   mini: 'mini',
   small: 'small',
   medium: 'medium',
@@ -17,14 +36,15 @@ const options = {
   xxlarge: 'xxlarge',
   free: 'free',
 };
-const defaultValue = options.mini;
+const sizeDefaultValue = sizeOptions.mini;
 
 storiesOf('Comparison of Buttons', module)
   .addDecorator(withKnobs)
   .add('default', withNotes(
     `
-      <h3>下記のプロパティが使用できます</h3>
+      <h3>プロパティは下記が使用できます</h3>
       <div>
+        Type: primary / success / warning / danger / info / text
         Size: mini / small / medium / wide / xwide / xxwide / large / xlarge / xxlarge / free
         Width: 任意の数字（Sizeがfreeの場合のみ有効）
         Height: 任意の数字（同上）
@@ -34,9 +54,17 @@ storiesOf('Comparison of Buttons', module)
     return {
       components: { ComparisonButtons },
       props: {
+        theme: {
+          type: String,
+          default: radios(themeLabel, themeOptions, themeDefaultValue),
+        },
+        type: {
+          type: String,
+          default: radios(typeLabel, typeOptions, typeDefaultValue),
+        },
         size: {
           type: String,
-          default: radios(label, options, defaultValue),
+          default: radios(sizeLabel, sizeOptions, sizeDefaultValue),
         },
         width: {
           type: Number,
@@ -49,6 +77,8 @@ storiesOf('Comparison of Buttons', module)
       },
       template: `
         <comparison-buttons
+          :color-theme="theme"
+          :type="type"
           :size="size"
           :width="width"
           :height="height"

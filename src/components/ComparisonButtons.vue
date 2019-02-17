@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <h2>Current Size: {{ size }}</h2>
+    <h2>Current Property Type: {{ type }}, Size: {{ size }}</h2>
     <div>
       <h3>My Button</h3>
       <my-button
+        :color-theme="colorTheme"
         :type="type"
         :size="size"
         :style="additionalStyles"
@@ -15,6 +16,7 @@
     <div>
       <h3>Element Button</h3>
       <el-button
+        :color-theme="colorTheme"
         :type="type"
         :size="size"
         @click="handleClick"
@@ -36,6 +38,7 @@ import MyButton from './MyButton.vue';
 })
 export default class ComparisonButtons extends Vue {
   // props
+  @Prop(String) private colorTheme!: string;
   @Prop(String) private type!: string;
   @Prop(String) private size!: string;
   @Prop(Number) private width!: number;
